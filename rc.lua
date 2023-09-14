@@ -526,10 +526,9 @@ globalkeys = mytable.join(
               {description = "run browser", group = "launcher"}),
 
     -- Default
-    --[[ Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"}),
-    --]]
+    -- Menubar
+    -- awful.key({ modkey }, "p", function() menubar.show() end,
+    --           {description = "show the menubar", group = "launcher"}),
     -- alternatively use rofi, a dmenu-like application with more features
     -- check https://github.com/DaveDavenport/rofi for more details
     --[[ rofi
@@ -538,7 +537,7 @@ globalkeys = mytable.join(
             'run', 'dmenu'))
         end,
         {description = "show rofi", group = "launcher"}),
-    --]]
+    -]]
     -- Prompt
     awful.key({ modkey }, "r", function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
@@ -561,7 +560,7 @@ globalkeys = mytable.join(
             beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
         end,
         {description = "show dmenu", group = "launcher"})
-    --]]
+    -- --]]
 )
 
 clientkeys = mytable.join(
@@ -691,6 +690,8 @@ awful.rules.rules = {
                      focus = awful.client.focus.filter,
                      raise = true,
                      keys = clientkeys,
+                     maximized_vertical   = false, -- Disable default window maximization
+                     maximized_horizontal = false,
                      buttons = clientbuttons,
                      screen = awful.screen.preferred,
                      placement = awful.placement.no_overlap+awful.placement.no_offscreen,
